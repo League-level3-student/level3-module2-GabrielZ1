@@ -41,21 +41,39 @@ public class _03_VisualArraySorter extends PApplet {
     static final int WIDTH = 600;
     static final int HEIGHT = 400;
 
+    int[] arr;
+    
     @Override
     public void settings() {
-        
+        size(500,500);
     }
 
     @Override
     public void setup() {
-        
+        arr = new int[50];
+        randomizeArray(arr);
+        noStroke();
     }
 
     @Override
     public void draw() {
-        
+        background(30,210,240);
+    	fill(0,0,0);
+        for(int i = 0; i<arr.length; i++) {
+        	rect(i*width/arr.length, height, width/arr.length, -arr[i]);
+        }
+        stepSort(arr);
+        if(mousePressed) {
+        	randomizeArray(arr);
+        }
     }
 
+    public void randomizeArray(int[] inputArray) {
+    	  for(int i = 0; i<inputArray.length; i++) {
+          	inputArray[i] = (int)random(height);
+          }
+    }
+    
     static public void main(String[] passedArgs) {
         PApplet.main(_03_VisualArraySorter.class.getName());
     }
