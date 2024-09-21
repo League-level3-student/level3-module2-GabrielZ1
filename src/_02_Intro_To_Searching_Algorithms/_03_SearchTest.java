@@ -13,7 +13,7 @@ class _03_SearchTest {
     @Test
     public void testLinearSearch() {
         // 1. Use the assertEquals() method to test your linear search method
-        assertEquals(false, true);
+    	assertEquals(false, true);
     }
 
     @Test

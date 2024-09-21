@@ -1,5 +1,6 @@
 package _01_Sorting_Algorithms;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class ThanosSorter extends Sorter {
@@ -48,24 +49,23 @@ public class ThanosSorter extends Sorter {
 	@Override
 	void sort(int[] arr, SortingVisualizer display) {
 
-		Random ran = new Random();
-		int currentRandom;
+		int numSnaps = 0;
 
 		for(int i = 0; i<arr.length-1; i++) {
 			if(arr[i] > arr[i+1] && arr[i] != 0 && arr[i+1] != 0) {
-				for(int k = 0; i<arr.length/2; k++) {
-					currentRandom = ran.nextInt(arr.length);
-
-					while(arr[currentRandom] == 0) {
-						currentRandom = ran.nextInt(arr.length);
-					}			
-					
-					arr[currentRandom] = 0;
+				for(int k = (int) (arr.length/(Math.pow(2, numSnaps)))-1; k>=(int) (arr.length/(Math.pow(2, numSnaps+1))); k--) {
+					arr[k] = 0;
 					display.updateDisplay();
 
 				}
+				numSnaps++;
 			}
 		}
 		display.updateDisplay();
+		
+		//code to see if the array is sorted in console
+		for(int i = 0; i<arr.length-1; i++) {
+			System.out.println(arr[i]);
+		}
 	}
 }
