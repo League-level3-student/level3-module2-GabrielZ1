@@ -56,9 +56,10 @@ public class ThanosSorter extends Sorter {
 				for(int k = (int) (arr.length/(Math.pow(2, numSnaps)))-1; k>=(int) (arr.length/(Math.pow(2, numSnaps+1))); k--) {
 					arr[k] = 0;
 					display.updateDisplay();
-
+					
 				}
 				numSnaps++;
+				i=0;
 			}
 		}
 		display.updateDisplay();
